@@ -8,18 +8,18 @@ des=[]
 oferta={}
 demanda={}
 cotoE={}
-hungalo=[]
+hungalo=[[]]
 
 def crearOri(ori,st):
     while (True):
-        entr=input("dame el nombre del "+st+" (si terminaste(y)):")
+        entr=input("dame el nombre del "+st+" (si terminaste(y)): ")
         if (entr=="y"):
             return ori
         ori.append(entr)
 
 def creaoferta(ori,demanda):
     for i in range(len(ori)):
-        var=int ( input("dame el valor de "+ori[i]+":"))
+        var=int ( input("dame el valor de "+ori[i]+": "))
         demanda[ori[i]]= var
     return demanda
 
@@ -27,7 +27,7 @@ def costoEnvio(des,ori,cotoE):
     for i in range(len(ori)):
         cotoE[ori[i]]={}
         for j in range(len(des)):
-            vat=int(input("dame el costo de envio de "+ori[i]+" a "+des[j]+":"))
+            vat=int(input("dame el costo de envio de "+ori[i]+" a "+des[j]+": "))
             cotoE[ori[i]][des[j]]=vat
     return cotoE
 
@@ -75,9 +75,20 @@ def menuP():
     print("1) problema de trasporte")
     print("2) metodo hungaro")
     return int(input("que operacion quieres hacer"))
+def damevalor(st):
+    return int(input("dame el numero de "+st+": "))
+
+def dameVal2(n,m,ma):
+    for i in range(n):
+        for j in range(m):
+            ma[i][j]=int(input("valor: "))
+    return ma
+
 n=1
+
 while (n>0):
     n=menuP()
+    os.system("cls")
     if (n==1):
         ori=crearOri(ori,"origen")
         des=crearOri(des,"destino")
@@ -85,6 +96,20 @@ while (n>0):
         demanda=creaoferta(des,demanda)
         cotoE=costoEnvio(des,ori,cotoE)
         transporte(des,ori,cotoE)
+    elif(n==2):
+        N=damevalor("filas")
+        M=damevalor("columna")
+        hungalo=[[0]*M for k in range(N) ]
+        hungalo=dameVal2(N,M,hungalo)
+        asignacion_optima, costo_total = aplicar_metodo_hungaro(hungalo)
+        os.system("cls")
+        print("Asignación óptima:", asignacion_optima)
+        print("Costo total:", costo_total)
+
+
+       
+    
+    
 
 
 
