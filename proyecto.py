@@ -2,7 +2,7 @@ import pandas as np
 from pulp import *
 from pandas import DataFrame
 from munkres import Munkres
-
+import os
 ori=[]
 des=[]
 oferta={}
@@ -10,25 +10,27 @@ demanda={}
 cotoE={}
 hungalo=[]
 
-def crearOri(ori):
+def crearOri(ori,st):
     while (True):
-        entr=input("dame el nombre del origen (si terminaste(y)):")
+        entr=input("dame el nombre del "+st+" (si terminaste(y)):")
         if (entr=="y"):
             return ori
         ori.append(entr)
 
 def creaoferta(ori,demanda):
     for i in range(len(ori)):
-        var=int ( input("dame el valor de"+ori[i]+":"))
+        var=int ( input("dame el valor de "+ori[i]+":"))
         demanda[ori[i]]= var
     return demanda
+
 def costoEnvio(des,ori,cotoE):
     for i in range(len(ori)):
         cotoE[ori[i]]={}
         for j in range(len(des)):
-            vat=int(input("dame el costo de envio de"+ori[i]+" a "+des[j]+":"))
+            vat=int(input("dame el costo de envio de "+ori[i]+" a "+des[j]+":"))
             cotoE[ori[i]][des[j]]=vat
     return cotoE
+
 def transporte(destino,origen,costo_envio):
     prob = LpProblem('Transporte', LpMinimize)
 
@@ -48,6 +50,7 @@ def transporte(destino,origen,costo_envio):
         if v.varValue > 0:
             print(v.name, "=", v.varValue)
     print('El costo mínimo es:', value(prob.objective))
+
 def aplicar_metodo_hungaro(cost_matrix):
     # Crear instancia del algoritmo de asignación óptima de Munkres
     m = Munkres()
@@ -66,7 +69,22 @@ def aplicar_metodo_hungaro(cost_matrix):
 
     # Devolver las asignaciones óptimas y el costo total
     return asignacion_optima, costo_total
-        
+
+def menuP():
+    print("-----------Menu----------")
+    print("1) problema de trasporte")
+    print("2) metodo hungaro")
+    return int(input("que operacion quieres hacer"))
+n=1
+while (n>0):
+    n=menuP()
+    if (n==1):
+        ori=crearOri(ori,"origen")
+        des=crearOri(des,"destino")
+        oferta=creaoferta(ori,oferta)
+        demanda=creaoferta(des,demanda)
+        cotoE=costoEnvio(des,ori,cotoE)
+        transporte(des,ori,cotoE)
 
 
 
