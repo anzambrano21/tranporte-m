@@ -74,7 +74,7 @@ def menuP():
     print("-----------Menu----------")
     print("1) problema de trasporte")
     print("2) metodo hungaro")
-    return int(input("que operacion quieres hacer"))
+    return int(input("que operacion quieres hacer: "))
 def damevalor(st):
     return int(input("dame el numero de "+st+": "))
 
