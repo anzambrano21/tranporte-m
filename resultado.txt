@@ -117,3 +117,9 @@ dame el numero de filas: 3
 dame el numero de columna: 3
 Asignación óptima: [(0, 1), (1, 0), (2, 2)]
 Costo total: 27
+
+
+problema hungaro de los camiones
+
+Asignación óptima: [(0, 1), (1, 0), (2, 3)]
+Costo total: 500
