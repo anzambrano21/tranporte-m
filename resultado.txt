@@ -1,0 +1,119 @@
+problema de trasporte
+
+a)
+
+
+dame el nombre del origen (si terminaste(y)): silo 1
+dame el nombre del origen (si terminaste(y)): silo 2
+dame el nombre del origen (si terminaste(y)): silo 3
+dame el nombre del origen (si terminaste(y)): y
+dame el nombre del destino (si terminaste(y)): 1
+dame el nombre del destino (si terminaste(y)): 2
+dame el nombre del destino (si terminaste(y)): 3
+dame el nombre del destino (si terminaste(y)): 4
+dame el nombre del destino (si terminaste(y)): y
+dame el valor de silo 1: 15
+dame el valor de silo 2: 25
+dame el valor de silo 3: 10
+dame el valor de 1: 5
+dame el valor de 2: 15
+dame el valor de 3: 15
+dame el valor de 4: 15
+dame el costo de envio de silo 1 a 1: 10
+dame el costo de envio de silo 1 a 2: 2
+dame el costo de envio de silo 1 a 3: 20
+dame el costo de envio de silo 1 a 4: 11
+dame el costo de envio de silo 2 a 1: 12
+dame el costo de envio de silo 2 a 2: 7
+dame el costo de envio de silo 2 a 3: 9
+dame el costo de envio de silo 2 a 4: 20
+dame el costo de envio de silo 3 a 1: 4
+dame el costo de envio de silo 3 a 2: 14
+dame el costo de envio de silo 3 a 3: 16
+dame el costo de envio de silo 3 a 4: 18
+
+Status: Optimal
+Cantidad_de_Envio_silo_1_2 = 5.0
+Cantidad_de_Envio_silo_1_4 = 10.0
+Cantidad_de_Envio_silo_2_2 = 10.0
+Cantidad_de_Envio_silo_2_3 = 15.0
+Cantidad_de_Envio_silo_3_1 = 5.0
+Cantidad_de_Envio_silo_3_4 = 5.0
+El costo mínimo es: 435.0
+
+b)
+dame el nombre del origen (si terminaste(y)): mexico
+dame el nombre del origen (si terminaste(y)): canada
+dame el nombre del origen (si terminaste(y)): estados unidos
+dame el nombre del origen (si terminaste(y)): y
+dame el nombre del destino (si terminaste(y)): africa
+dame el nombre del destino (si terminaste(y)): londres
+dame el nombre del destino (si terminaste(y)): brasil
+dame el nombre del destino (si terminaste(y)): y
+dame el valor de mexico: 100
+dame el valor de canada: 300
+dame el valor de estados unidos: 300
+dame el valor de africa: 300
+dame el valor de londres: 200
+dame el valor de brasil: 200   
+dame el costo de envio de mexico a africa: 5
+dame el costo de envio de mexico a londres: 2
+dame el costo de envio de mexico a brasil: 3
+dame el costo de envio de canada a africa: 8
+dame el costo de envio de canada a londres: 4
+dame el costo de envio de canada a brasil: 3
+dame el costo de envio de estados unidos a africa: 9
+dame el costo de envio de estados unidos a londres: 7
+dame el costo de envio de estados unidos a brasil: 5
+
+c)
+Status: Optimal
+Cantidad_de_Envio_canada_brasil = 100.0
+dame el nombre del origen (si terminaste(y)): montero
+dame el nombre del origen (si terminaste(y)): warnes
+dame el nombre del origen (si terminaste(y)): el torno
+dame el nombre del origen (si terminaste(y)): y
+dame el nombre del destino (si terminaste(y)): la pz
+dame el nombre del destino (si terminaste(y)): Cochabamba
+dame el nombre del destino (si terminaste(y)): tarija
+dame el nombre del destino (si terminaste(y)): y
+dame el valor de montero: 110
+dame el valor de warnes: 90
+dame el valor de el torno: 150
+dame el valor de la pz: 80
+dame el valor de Cochabamba: 170
+dame el valor de tarija: 100
+dame el costo de envio de montero a la pz: 30
+dame el costo de envio de montero a Cochabamba: 50
+dame el costo de envio de montero a tarija: 60
+dame el costo de envio de warnes a la pz: 70
+dame el costo de envio de warnes a Cochabamba: 80
+dame el costo de envio de warnes a tarija: 35
+dame el costo de envio de el torno a la pz: 90
+dame el costo de envio de el torno a Cochabamba: 20
+dame el costo de envio de el torno a tarija: 40
+
+Status: Optimal
+Cantidad_de_Envio_el_torno_Cochabamba = 150.0
+Cantidad_de_Envio_montero_Cochabamba = 20.0
+Cantidad_de_Envio_montero_la_pz = 80.0
+Cantidad_de_Envio_montero_tarija = 10.0
+Cantidad_de_Envio_warnes_tarija = 90.0
+El costo mínimo es: 10150.0
+
+problema de asignacion
+
+a)
+
+
+dame el numero de filas: 3
+dame el numero de columna: 3
+Asignación óptima: [(0, 0), (1, 2), (2, 1)]
+Costo total: 3
+
+b)
+
+dame el numero de filas: 3
+dame el numero de columna: 3
+Asignación óptima: [(0, 1), (1, 0), (2, 2)]
+Costo total: 27

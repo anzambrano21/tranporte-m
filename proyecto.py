@@ -105,6 +105,12 @@ while (n>0):
         os.system("cls")
         print("Asignación óptima:", asignacion_optima)
         print("Costo total:", costo_total)
+    ori=[]
+    des=[]
+    oferta={}
+    demanda={}
+    cotoE={}
+    hungalo=[[]]
 
 
        
