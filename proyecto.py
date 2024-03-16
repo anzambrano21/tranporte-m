@@ -9,20 +9,20 @@ oferta={}
 demanda={}
 cotoE={}
 hungalo=[[]]
-
+#funcion para generar los origenes y destinos para el metodo de trasporte 
 def crearOri(ori,st):
     while (True):
         entr=input("dame el nombre del "+st+" (si terminaste(y)): ")
         if (entr=="y"):
             return ori
         ori.append(entr)
-
+#funcion que nos genera una las ofertas y demandas de los origenes y destinos
 def creaoferta(ori,demanda):
     for i in range(len(ori)):
         var=int ( input("dame el valor de "+ori[i]+": "))
         demanda[ori[i]]= var
     return demanda
-
+#funcion que nos rellena la mastis de costo de trasporte
 def costoEnvio(des,ori,cotoE):
     for i in range(len(ori)):
         cotoE[ori[i]]={}
@@ -31,6 +31,7 @@ def costoEnvio(des,ori,cotoE):
             cotoE[ori[i]][des[j]]=vat
     return cotoE
 
+#funcion que nos aplica el metodo de trasporte 
 def transporte(destino,origen,costo_envio):
     prob = LpProblem('Transporte', LpMinimize)
 
@@ -50,7 +51,7 @@ def transporte(destino,origen,costo_envio):
         if v.varValue > 0:
             print(v.name, "=", v.varValue)
     print('El costo mínimo es:', value(prob.objective))
-
+#funcion que aplica el metodo de asignacion(hungaro)
 def aplicar_metodo_hungaro(cost_matrix):
     # Crear instancia del algoritmo de asignación óptima de Munkres
     m = Munkres()
@@ -70,25 +71,31 @@ def aplicar_metodo_hungaro(cost_matrix):
     # Devolver las asignaciones óptimas y el costo total
     return asignacion_optima, costo_total
 
+#metodo que para el menu que nos dan las obciones 
 def menuP():
     print("-----------Menu----------")
     print("1) problema de trasporte")
     print("2) metodo hungaro")
     return int(input("que operacion quieres hacer: "))
+#metodo que rellena la matris para el metodo de asignacion 
 def damevalor(st):
     return int(input("dame el numero de "+st+": "))
 
 def dameVal2(n,m,ma):
     for i in range(n):
         for j in range(m):
-            ma[i][j]=int(input("valor: "))
+            ma[i][j]=int(input("valor "+i+" "+j+": "))
     return ma
 
+
+
+#llamamos los metodos 
 n=1
 
 while (n>0):
     n=menuP()
     os.system("cls")
+    #metodo de trasporte
     if (n==1):
         ori=crearOri(ori,"origen")
         des=crearOri(des,"destino")
@@ -96,6 +103,7 @@ while (n>0):
         demanda=creaoferta(des,demanda)
         cotoE=costoEnvio(des,ori,cotoE)
         transporte(des,ori,cotoE)
+    #metodo hungaro 
     elif(n==2):
         N=damevalor("filas")
         M=damevalor("columna")
